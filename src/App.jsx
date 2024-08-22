@@ -6,6 +6,7 @@ import About from './pages/About';
 import Community from './pages/Community';
 import Job from './pages/Job';
 import CustomizedAccordions from './pages/Faq';
+import LoginForm from './pages/login';
 
 
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="communaute" element={<Community/>} />
           <Route path="offredemploi" element={<Job/>} />
           <Route path="Faq" element={<CustomizedAccordions/>}/>
+          <Route path="login" element={<LoginForm/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
