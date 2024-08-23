@@ -15,29 +15,31 @@ export default function Carousel() {
   };
 
   return (
-    <div className="bg-gray-100 p-4 rounded-lg">
+    <div>
       <Slider {...settings}>
         <div className="relative">
-          <img src="/image1.jpg" alt="Slide 1" className="w-full h-64 object-cover rounded" />
+          <img src="https://img.freepik.com/free-photo/depressed-person-standing-stairs_23-2150761508.jpg" alt="Slide 1" className="w-full h-64 object-cover rounded" />
           <div className="absolute inset-0 flex items-center justify-center">
             <h2 className="text-white text-3xl font-bold bg-black bg-opacity-50 p-4 rounded">
-              Titre de l'image 1
+            Si tu veux faire quelque chose, ou tu trouves un moyen ou tu trouves des excuses
             </h2>
           </div>
         </div>
         <div className="relative">
-          <img src="/image2.jpg" alt="Slide 2" className="w-full h-64 object-cover rounded" />
+          <img src="https://img.freepik.com/free-photo/portrait-athletic-male-tennis-player_23-2151190017.jpg" alt="Slide 2" className="w-full h-64 object-cover rounded" />
           <div className="absolute inset-0 flex items-center justify-center">
             <h2 className="text-white text-3xl font-bold bg-black bg-opacity-50 p-4 rounded">
-              Titre de l'image 2
+            Change ta vie aujourd'hui. Ne parie pas sur le futur, 
+            agis maintenant, sur-le-champ."
+            Simone de Beauvoir
             </h2>
           </div>
         </div>
         <div className="relative">
-          <img src="/image3.jpg" alt="Slide 3" className="w-full h-64 object-cover rounded" />
+          <img src="https://img.freepik.com/free-photo/monochrome-portrait-athlete-competing-paralympic-games-championship_23-2151492775.jpg" alt="Slide 3" className="w-full h-64 object-cover rounded" />
           <div className="absolute inset-0 flex items-center justify-center">
             <h2 className="text-white text-3xl font-bold bg-black bg-opacity-50 p-4 rounded">
-              Titre de l'image 3
+            "La sueur d’aujourd’hui est le succès de demain."
             </h2>
           </div>
         </div>

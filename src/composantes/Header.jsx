@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import theme from '@material-tailwind/react/theme';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,7 +13,11 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
-const pages = ['Accueil', 'Qui sommes-nous', 'Communaute', "Offredemploi", 'Faq'];
+
+
+
+const pages = ['Accueil', 'Communaute','Contact','Faq', 'Offredemploi','Qui sommes-nous' ];
+
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -31,32 +36,26 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="fixed">
+    <AppBar position="fixed"  sx={(theme) => ({
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      flexShrink: 0,
+      borderRadius: '999px',
+      bgcolor:'green',
+      // backdropFilter: 'fade(24px)',
+      maxHeight: 70,
+      margin:'10px',
+      border: '1px solid ',
+      borderColor: 'divider',
+     
+    })}>
       <Container maxWidth={false} sx={{ borderRadius: '999px', margin: '10px' }}>
         <Toolbar
-          variant="regular"
-          sx={(theme) => ({
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            flexShrink: 0,
-            borderRadius: '999px',
-            bgcolor:
-              theme.palette.mode === 'blue'
-                ? 'rgba(255, 255, 255, 0.4)'
-                : 'rgba(0, 0, 0, 0.4)',
-            backdropFilter: 'blur(24px)',
-            maxHeight: 40,
-            border: '1px solid',
-            borderColor: 'divider',
-            boxShadow:
-              theme.palette.mode === 'blue'
-                ? `0 0 1px rgba(85, 166, 246, 0.1), 1px 1.5px 2px -1px rgba(85, 166, 246, 0.15), 4px 4px 12px -2.5px rgba(85, 166, 246, 0.15)`
-                : '0 0 1px rgba(2, 31, 59, 0.7), 1px 1.5px 2px -1px rgba(2, 31, 59, 0.65), 4px 4px 12px -2.5px rgba(2, 31, 59, 0.65)',
-          })}
-        >
+          variant="regular">
           {/* Logo et titre pour les écrans moyens et grands */}
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+        <Link to={'/Accueil'}>
+        <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -74,6 +73,8 @@ function ResponsiveAppBar() {
           >
             LOGO
           </Typography>
+        
+        </Link>
 
           {/* Menu hamburger pour les petits écrans */}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -119,7 +120,8 @@ function ResponsiveAppBar() {
           </Box>
 
           {/* Logo et titre pour les petits écrans */}
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+         <Link to={'/Accueil'}>
+         <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -138,6 +140,7 @@ function ResponsiveAppBar() {
           >
             LOGO
           </Typography>
+         </Link>
 
           {/* Liens de navigation pour les écrans moyens et grands */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
