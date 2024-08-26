@@ -16,14 +16,8 @@ export default function ContactForm() {
   }
   
   return (
-    <div className="flex max-w-4xl mx-auto p-6 bg-gray-100 rounded-lg shadow-lg">
-      <div className="flex-1">
-        <img 
-          src="https://pixabay.com/get/g33830fa44231ef861a6db4b122cc81d81aec45522f44af078b74fd4bcdc1db2725cfbf7f40ca58e56d0d3493a7d0a9acfa700e45b4a16b65185cabbac1353b21d0a2e9c30aa90105be76a832e97f10e2_640.jpg" // Remplacez par l'URL de votre image
-          alt="Description de l'image"
-          className="w-full h-auto rounded-lg"
-        />
-      </div>
+    <div className="flex max-w-4xl mx-auto p-6 bg-gray-100 rounded-lg shadow-lg" >
+      
       <div className="flex-1 pl-6">
 
         <form onSubmit={sendEmail}>

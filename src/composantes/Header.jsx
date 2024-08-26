@@ -12,12 +12,10 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-
-
+import Logo from '../assets/img/trophelix_logo-removebg-preview.png'
 
 
 const pages = ['Accueil', 'Communaute','Contact','Faq', 'Offredemploi','Qui sommes-nous' ];
-
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -39,15 +37,17 @@ function ResponsiveAppBar() {
     <AppBar position="fixed"  sx={(theme) => ({
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'space-between',
+      justifyContent: 'center',
       flexShrink: 0,
       borderRadius: '999px',
-      bgcolor:'green',
-      // backdropFilter: 'fade(24px)',
-      maxHeight: 70,
-      margin:'10px',
+      // backgroundImage: 'linear-gradient(to left, #8A2BE2, rgba(0, 191, 255, 0.7))',
+      // backgroundImage: 'linear-gradient(to left, #6A0dad, rgba(135, 206, 250, 0.7))',
+      backgroundImage: 'linear-gradient(to left,  #8A2BE2, #ffffff)',
+      maxHeight: 60,
+      padding: 2,
       border: '1px solid ',
       borderColor: 'divider',
+      boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
      
     })}>
       <Container maxWidth={false} sx={{ borderRadius: '999px', margin: '10px' }}>
@@ -55,7 +55,8 @@ function ResponsiveAppBar() {
           variant="regular">
           {/* Logo et titre pour les écrans moyens et grands */}
         <Link to={'/Accueil'}>
-        <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+        <img src={Logo} alt="Trophelix Logo" style={{ height: '40px', marginRight: '10px' }} />
+     
           <Typography
             variant="h6"
             noWrap
@@ -65,15 +66,15 @@ function ResponsiveAppBar() {
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
+              fontWeight: 400,
+              letterSpacing: '2rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
           >
-            LOGO
-          </Typography>
         
+          </Typography>
+      
         </Link>
 
           {/* Menu hamburger pour les petits écrans */}
@@ -121,7 +122,7 @@ function ResponsiveAppBar() {
 
           {/* Logo et titre pour les petits écrans */}
          <Link to={'/Accueil'}>
-         <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+        
           <Typography
             variant="h5"
             noWrap
@@ -138,7 +139,7 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+          
           </Typography>
          </Link>
 

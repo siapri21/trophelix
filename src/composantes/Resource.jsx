@@ -60,13 +60,15 @@ const RessourcedCard = ({ title, description, index }) => {
         opacity: isVisible ? 10 : 0,
         transition: 'transform 0.5s ease-out, opacity 0.5s ease-out',
         transitionDelay: isVisible ? `${index * 0.5}s` : '5s',
+      
       }}
     >
       <Card 
         sx={{ 
           maxWidth: 345,
-          backgroundColor: isHovered ? '#e0e0e0' : 'white',
+          backgroundColor: isHovered ? '#8A2BE2' : '#fffff',
           transition: 'background-color 0.3s ease',
+          bgcolor: '#8A2BE2',
         }}
       >
         <CardContent
@@ -77,7 +79,7 @@ const RessourcedCard = ({ title, description, index }) => {
             variant="h5" 
             component="div"
             sx={{ 
-              color: isHovered ? '#1976d2' : 'black',
+              color: isHovered ? 'white' : 'black',
               transition: 'color 0.9s ease',
             }}
           >

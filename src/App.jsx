@@ -7,7 +7,7 @@ import Community from './pages/Community';
 import Job from './pages/Job';
 import CustomizedAccordions from './pages/Faq';
 import LoginForm from './pages/login';
-import ContactForm from './pages/Contact';
+import ContactForm from './composantes/Contact';
 import './App.css';
 
 

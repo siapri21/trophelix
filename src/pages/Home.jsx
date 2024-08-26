@@ -5,8 +5,8 @@ import Carousel from '../composantes/Carousel';
 import ImageTextComponent from '../composantes/ImageComposant';
 import RessourceCard from '../composantes/Resource';
 import Event from '../composantes/event';
-import { EventRounded } from '@mui/icons-material';
 import TeamMember from '../composantes/TeamMember';
+import ContactForm from '../composantes/Contact';
 
 
 export default function Home() {
@@ -27,6 +27,9 @@ export default function Home() {
         </Grid>
         <Grid>
           <TeamMember/>
+        </Grid>
+        <Grid>
+          <ContactForm />
         </Grid>
         </Grid>
     </Container>

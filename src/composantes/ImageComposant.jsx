@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography, Card, CardMedia, CardContent, Grid, Button } from '@mui/material';
-import Image from '../assets/img/travail-equipe-entreprises-se-joignent-ensemble-concept-travail-equipe-commerciale.png'
+import Image from '../assets/img/portrait-femme-competition-au-championnat-jeux-olympiques.png'
 
 export default  function ImageTextComponent() {
   return (
@@ -18,15 +18,15 @@ export default  function ImageTextComponent() {
           <Box sx={{ display: 'flex', flexDirection: 'column', p: 2 }}>
             <CardContent>
               <Typography component="h2" variant="h5" gutterBottom>
-               lorem
-              </Typography>
+              " <strong style={{color:'orange'}}>Trophelix</strong> Optimise la reconversion <em style={{color: 'blue'}}>des sports pros</em>
+             " </Typography>
               <Typography variant="body1" color="text.secondary">
-              description
+              Trophelix regroupe les acteurs de la reconversion pros dans une plateforme pour optimiser la transition des athlètes.
               </Typography>
             </CardContent>
           </Box>
-          <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
-              <Button variant="outlined">Qui-sommes-nous</Button>
+          <Box sx={{ display: 'flex', justifyContent: 'center', mt: 1 }}>
+              <Button variant="outlined" sx={{m: 2}}>Qui-sommes-nous</Button>
             </Box>
         </Grid>
       </Grid>

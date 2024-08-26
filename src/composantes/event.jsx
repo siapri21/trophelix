@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
-import { Card, Typography, List, ListItem, ListItemText, Button, Dialog, DialogTitle, DialogContent, DialogActions, Grid, Box } from '@mui/material';
+import { Card, Typography, List, ListItem, ListItemText, Button, Dialog, DialogTitle, DialogContent, DialogActions, Box, Badge } from '@mui/material';
 import dayjs from 'dayjs';
 
 const EventCalendar = () => {
@@ -10,11 +10,15 @@ const EventCalendar = () => {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [openDialog, setOpenDialog] = useState(false);
 
-  // Exemple d'événements avec plus de détails
+  // Plus d'événements
   const events = [
     { date: '2024-08-01', title: 'Réunion d\'équipe', details: 'Discussion sur le nouveau projet', location: 'Salle de conférence A' },
     { date: '2024-08-05', title: 'Présentation du projet', details: 'Présentation aux investisseurs', location: 'Auditorium principal' },
     { date: '2024-08-10', title: 'Deadline du rapport', details: 'Remise du rapport trimestriel', location: 'Bureau du directeur' },
+    { date: '2024-08-15', title: 'Formation', details: 'Formation sur les nouvelles technologies', location: 'Salle de formation B' },
+    { date: '2024-08-20', title: 'Réunion clients', details: 'Rencontre avec les clients principaux', location: 'Salle de réunion C' },
+    { date: '2024-08-25', title: 'Lancement produit', details: 'Lancement du nouveau produit', location: 'Hall d\'exposition' },
+    { date: '2024-08-30', title: 'Bilan mensuel', details: 'Revue des performances du mois', location: 'Salle de conférence principale' },
   ];
 
   const eventsForSelectedDate = events.filter(
@@ -28,6 +32,22 @@ const EventCalendar = () => {
 
   const handleCloseDialog = () => {
     setOpenDialog(false);
+  };
+
+  // Fonction pour ajouter des points aux dates avec des événements
+  const renderDayInPicker = (date, _, pickersDayProps) => {
+    const hasEvent = events.some(event => event.date === date.format('YYYY-MM-DD'));
+
+    return (
+      <Badge
+        key={date.toString()}
+        color={hasEvent ? 'primary' : 'default'}
+        variant="dot"
+        overlap="circular"
+      >
+        <div {...pickersDayProps} />
+      </Badge>
+    );
   };
 
   return (
@@ -44,6 +64,7 @@ const EventCalendar = () => {
                 orientation="landscape"
                 value={selectedDate}
                 onChange={(newValue) => setSelectedDate(newValue)}
+                renderDay={renderDayInPicker}
                 sx={{
                   width: '100%',
                   '& .MuiStaticDatePicker-root': { width: '100%' },
@@ -53,7 +74,7 @@ const EventCalendar = () => {
             </LocalizationProvider>
           </Box>
 
-          <Box sx={{ width: '100%', maxWidth: '400px', ml: { md:8} }}>
+          <Box sx={{ width: '100%', maxWidth: '400px', ml: { md: 8 } }}>
             <Typography variant="h6" gutterBottom>
               Événements pour le {selectedDate.format('DD/MM/YYYY')}:
             </Typography>
