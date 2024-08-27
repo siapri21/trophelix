@@ -53,17 +53,20 @@ const About = () => {
     <Box sx={{ overflow: 'hidden', width: '100%' }}>
       <Container maxWidth="lg" sx={{ padding: { xs: 2, sm: 3 } }}>
         {/* Nouvelle section avec titre et vidéo */}
-        <Box sx={{ display: 'flex', flexDirection: { xs: 'row', md: 'row' }, gap: 4, mb: 4 }}>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'row', md: 'row' }, gap: 2, mb: 4}}>
           <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-            <Typography variant="h2" gutterBottom sx={{fontSize:{xs: 10, sm: 70}}}>
+            <Typography variant="h2" gutterBottom sx={{fontSize:{ xs: '1.5rem', sm: '2.5rem', md: '3rem'}}}>
               Qui sommes-nous ?
             </Typography>
-            <Box sx={{ overflow: 'hidden', maxHeight: '200px', padding: 20 }}>
-              <Typography variant="body1" paragraph >
-                Nous sommes une organisation dédiée à la reconversion des sportifs de haut niveau. Notre mission est d'accompagner les athlètes dans leur transition vers une nouvelle carrière, en leur fournissant les outils, les ressources et le soutien nécessaires pour réussir.
+            <Box sx={{ overflow: 'hidden', maxHeight: '200px', bgcolor:'grey.100',py: 4, mb: 4 }}>
+              <Typography variant="body1" paragraph  sx={{fontSize:{xs: '0.4rem', sm: '0.9rem'}}} >
+              Trophelix est une plateforme innovante qui répond à un besoin crucial dans le monde du sport : préparer et aider les sportifs semi-professionnels et professionnels à réussir leur transition de carrière. 
               </Typography>
-              <Typography variant="body1" paragraph>
-                Notre équipe est composée de professionnels expérimentés dans les domaines du sport, de la psychologie, de la formation professionnelle et du développement personnel. Nous croyons fermement que les compétences acquises au cours d'une carrière sportive peuvent être transférées avec succès dans le monde professionnel.
+              <Typography variant="body1" paragraph sx={{fontSize:{xs: '0.4rem', sm: '0.9rem'}}}>
+              Grâce à notre solution basée sur l'IA, nous offrons des ressources, des experts et des outils pour une transition réussie.
+              </Typography>
+              <Typography sx={{fontSize:{xs: '0.4rem', sm: '0.9rem'}}}>
+              Nous ciblons à la fois les sportifs eux-mêmes, ainsi que les fédérations et clubs sportifs qui peuvent utiliser la plateforme pour accompagner leurs athlètes dans leur reconversion. 
               </Typography>
             </Box>
           </Box>
@@ -72,7 +75,7 @@ const About = () => {
           <Box 
             sx={{ 
               flex: '0 0 300px',
-              height: '400px',
+              height: {sx:'200px', md:'400px'},
               position: 'relative',
               overflow: 'hidden',
               borderRadius: '10px',
@@ -87,7 +90,8 @@ const About = () => {
                 position: 'absolute',
                 top: 0,
                 left: '50%',
-                height: '100vh',
+                width: {sx:'100px', sm: '350px'},
+                height: {sx: '200px', sm: '350px'},
                 transform: 'translateX(-50%)',
                 objectFit: 'cover'
               }}
@@ -100,8 +104,8 @@ const About = () => {
                 position: 'absolute',
                 top: 0,
                 left: 0,
-                width: '100%',
-                height: '100%',
+                width: { xs: '250px', sm: '350px' }, 
+                height: { xs: '268px', sm: '350px' }, 
                 backgroundColor: 'rgba(0, 0, 0, 0.3)',
               }}
             />
