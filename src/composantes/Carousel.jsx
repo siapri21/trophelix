@@ -3,7 +3,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Height } from '@mui/icons-material';
+
 
 export default function Carousel() {
   const settings = {
@@ -16,8 +16,8 @@ export default function Carousel() {
   };
 
   return (
-    <div className='carousel-container h-screen'>
-      <Slider {...settings}>
+    <div className='carousel-container'>
+      <Slider {...settings} >
         <div className="relative h-screen ">
           <img className="w-full h-full object-cover" src="https://img.freepik.com/free-photo/depressed-person-standing-stairs_23-2150761508.jpg" alt="Slide 1" />
           <div className="absolute inset-0 flex items-center justify-center">

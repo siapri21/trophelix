@@ -16,12 +16,13 @@ export default function ContactForm() {
   }
   
   return (
-    <div className="flex max-w-4xl mx-auto p-6 bg-gray-100 rounded-lg shadow-lg" >
-      
+    <div  className=' className="flex max-w-4xl mx-auto p-6 bg-gray-100 rounded-lg shadow-lg"'
+    style={{justifyContent: 'center', alignItems: 'center'}}>
+
       <div className="flex-1 pl-6">
 
         <form onSubmit={sendEmail}>
-          <h2 className="text-2xl font-bold mb-6 text-gray-800">Contactez-nous</h2>
+          <h2 className="text-2xl font-bold mb-6 text-gray-800 ">Contactez-nous</h2>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" >
               nom

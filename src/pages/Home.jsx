@@ -11,8 +11,8 @@ import ContactForm from '../composantes/Contact';
 
 export default function Home() {
   return (
-    <Container className="py-8">
-      <Grid container spacing={4}>
+    <Container className="flex  justify-center items-center min-h-screen max-w-4xl  p-6">
+      <Grid container spacing={5} className='flex justify-center' >
         <Grid item xs={12} md={11}>
           <Carousel />
         </Grid>
@@ -35,3 +35,4 @@ export default function Home() {
     </Container>
   );
 }
+
