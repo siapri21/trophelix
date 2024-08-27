@@ -34,27 +34,27 @@ const FAQReconversionSportive = () => {
   const tutorials = [
     {
       title: "Comment réussir sa reconversion sportive",
-      videoUrl: "https://www.youtube.com/embed/VIDEO_ID_1", // Remplacez par l'ID de votre vidéo
+      videoUrl: "https://www.youtube.com/embed/N8QPnQ8Dzjw", // Remplacez par l'ID de votre vidéo
     },
     {
       title: "Les étapes de la reconversion professionnelle",
-      videoUrl: "https://www.youtube.com/embed/VIDEO_ID_2", // Remplacez par l'ID de votre vidéo
+      videoUrl: "https://www.youtube.com/embed/U26nMJHoj0E", // Remplacez par l'ID de votre vidéo
     },
     {
       title: "Gérer la transition émotionnelle après le sport",
-      videoUrl: "https://www.youtube.com/embed/VIDEO_ID_3", // Remplacez par l'ID de votre vidéo
+      videoUrl: "https://www.youtube.com/embed/bBYEviupPN4", // Remplacez par l'ID de votre vidéo
     },
     {
     title: "Comment faire un bilan de compétences pour un sportif de haut niveau",
-    videoUrl: "https://www.youtube.com/embed/REAL_VIDEO_ID_1",
+    videoUrl: "https://www.youtube.com/embed/6G8WAXvq6Xk",
   },
   {
     title: "Les étapes clés pour réussir sa reconversion après une carrière sportive",
-    videoUrl: "https://www.youtube.com/embed/REAL_VIDEO_ID_2",
+    videoUrl: "https://www.youtube.com/embed/Vao8TLBkBbg",
   },
   {
     title: "Développer sa marque personnelle après une carrière sportive",
-    videoUrl: "https://www.youtube.com/embed/REAL_VIDEO_ID_11",
+    videoUrl: "https://www.youtube.com/embed/aXOIlNcSTRg&t=29s",
   },
   ];
 

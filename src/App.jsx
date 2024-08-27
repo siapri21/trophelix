@@ -9,6 +9,7 @@ import CustomizedAccordions from './pages/Faq';
 import LoginForm from './pages/login';
 import ContactForm from './composantes/Contact';
 import './App.css';
+import ForumPage from './pages/forum';
 
 
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="Faq" element={<CustomizedAccordions/>}/>
           <Route path="login" element={<LoginForm/>}/>
           <Route path="Contact" element={<ContactForm/>} />
+          <Route path="forum" element={<ForumPage/>} />
         </Route>
       </Routes>
     </BrowserRouter>

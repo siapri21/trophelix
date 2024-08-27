@@ -30,8 +30,13 @@ function ResponsiveAppBar() {
     navigate('/login');
   };
 
+  const handlePageNavigation = (page) => {
+    navigate(`/${page.toLowerCase().replace(/\s+/g, '-')}`);
+    handleCloseNavMenu();
+  };
+
   return (
-    <AppBar position="fixed" sx={(theme) => ({
+    <AppBar position="fixed" sx={{
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -43,19 +48,19 @@ function ResponsiveAppBar() {
       border: '1px solid ',
       borderColor: 'divider',
       boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-    })}>
+    }}>
       <Container maxWidth="lg" sx={{ 
         display: 'flex',
-        justifyContent: 'space-between', // Espace entre les éléments
+        justifyContent: 'space-between',
         alignItems: 'center',
         width: '100%',
-        padding: { xs: '0 16px', md: 0 }, // Padding pour petits écrans
+        padding: { xs: '0 16px', md: 0 },
       }}>
         <Toolbar
           variant="regular"
           sx={{
             width: '100%',
-            justifyContent: { xs: 'space-between', md: 'center' }, // Espace entre sur xs, centré sur md
+            justifyContent: { xs: 'space-between', md: 'center' },
           }}
         >
           <Link to={'/'} style={{ display: 'flex', alignItems: 'center' }}>
@@ -108,13 +113,8 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Link
-                    to={'/'}
-                    style={{ textDecoration: 'none', color: 'inherit' }}
-                  >
-                    <Typography textAlign="center">{page}</Typography>
-                  </Link>
+                <MenuItem key={page} onClick={() => handlePageNavigation(page)}>
+                  <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -122,18 +122,13 @@ function ResponsiveAppBar() {
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
             {pages.map((page) => (
-              <Link
+              <Button
                 key={page}
-                to={`/${page.toLowerCase().replace(/\s+/g, '-')}`}
-                style={{ textDecoration: 'none' }}
+                onClick={() => handlePageNavigation(page)}
+                sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <Button
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: 'white', display: 'block' }}
-                >
-                  {page}
-                </Button>
-              </Link>
+                {page}
+              </Button>
             ))}
           </Box>
 

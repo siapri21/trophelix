@@ -230,19 +230,73 @@ const About = () => {
         </IconButton>
       </Box>
 
-      <Container maxWidth="lg" sx={{ padding: { xs: 2, sm: 3 } }}>
-        <Box my={4}>
-          <Typography variant="h4" gutterBottom>
-            Notre Histoire
-          </Typography>
-          <Typography variant="body1" paragraph>
-            Fondée par des anciens athlètes qui ont personnellement vécu les défis de la reconversion, notre organisation a été créée pour aider d'autres sportifs à naviguer cette période de transition avec succès.
-          </Typography>
-          <Typography variant="body1" paragraph>
-            Depuis notre création, nous avons aidé des centaines d'athlètes à trouver leur voie dans le monde professionnel, en leur offrant des formations, des conseils et un soutien personnalisé. Nous comprenons les défis uniques auxquels sont confrontés les sportifs lors de leur reconversion, et nous sommes déterminés à les aider à réussir cette transition cruciale.
-          </Typography>
-        </Box>
-      </Container>
+      <Box sx={{ backgroundColor: 'grey.100', padding: { xs: 2, sm: 3 } }}>
+  <Container maxWidth="lg">
+    <Box 
+      my={4} 
+      sx={{ 
+        display: 'flex', 
+        flexDirection: { xs: 'column', md: 'row' },
+        alignItems: { xs: 'flex-start', md: 'stretch' },
+        gap: { xs: 2, md: 4 },
+        position: 'relative'
+      }}
+    >
+      <Box 
+        sx={{ 
+          flex: { xs: '1 1 100%', md: '0 0 30%' },
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'flex-start',
+          alignItems: { xs: 'flex-start', md: 'flex-end' },
+          paddingRight: { md: 4 },
+          position: 'relative'
+        }}
+      >
+        <Typography 
+          variant="h4" 
+          gutterBottom 
+          sx={{ 
+            position: { md: 'sticky' },
+            top: '20px',
+            fontWeight: 'bold',
+            color: 'primary.main',
+            textTransform: 'uppercase',
+            borderBottom: '3px solid',
+            borderColor: 'primary.main',
+            paddingBottom: 1,
+            marginBottom: 2
+          }}
+        >
+          Notre Histoire
+        </Typography>
+      </Box>
+
+      {/* Ligne verticale de séparation */}
+      <Box
+        sx={{
+          display: { xs: 'none', md: 'block' },
+          width: '1px',
+          backgroundColor: 'grey.300',
+          position: 'absolute',
+          top: 0,
+          bottom: 0,
+          left: '30%',
+          transform: 'translateX(-50%)'
+        }}
+      />
+
+      <Box sx={{ flex: { xs: '1 1 100%', md: '0 0 70%' } }}>
+        <Typography variant="body1" paragraph>
+          Fondée par des anciens athlètes qui ont personnellement vécu les défis de la reconversion, notre organisation a été créée pour aider d'autres sportifs à naviguer cette période de transition avec succès.
+        </Typography>
+        <Typography variant="body1" paragraph>
+          Depuis notre création, nous avons aidé des centaines d'athlètes à trouver leur voie dans le monde professionnel, en leur offrant des formations, des conseils et un soutien personnalisé. Nous comprenons les défis uniques auxquels sont confrontés les sportifs lors de leur reconversion, et nous sommes déterminés à les aider à réussir cette transition cruciale.
+        </Typography>
+      </Box>
+    </Box>
+  </Container>
+</Box>
     </Box>
   );
 };
