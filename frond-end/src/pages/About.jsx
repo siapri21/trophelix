@@ -15,27 +15,60 @@ const About = () => {
 
   const values = [
     {
-      title: "Adaptation",
-      quote: "La reconversion est une nouvelle compétition, avec de nouvelles règles à maîtriser.",
-      author: "Ancien athlète olympique",
-      color: "rgba(255, 215, 0, 0.8)",
-      font: "'Playfair Display', serif"
+        title: "Adaptation",
+        quote: "La reconversion est une nouvelle compétition, avec de nouvelles règles à maîtriser.",
+        author: "Ancien athlète olympique",
+        color: "rgba(255, 215, 0, 0.8)",
+        font: "'Playfair Display', serif",
+        titleSize: "28px",
+        quoteSize: "20px"
     },
     {
-      title: "Persévérance",
-      quote: "La transition vers une nouvelle carrière demande autant de détermination que l'entraînement sportif.",
-      author: "Ex-footballeur professionnel",
-      color: "rgba(76, 175, 80, 0.8)",
-      font: "'Roboto Slab', serif"
+        title: "Persévérance",
+        quote: "La transition vers une nouvelle carrière demande autant de détermination que l'entraînement sportif.",
+        author: "Ex-footballeur professionnel",
+        color: "rgba(76, 175, 80, 0.8)",
+        font: "'Roboto Slab', serif",
+        titleSize: "30px",
+        quoteSize: "22px"
     },
     {
-      title: "Résilience",
-      quote: "La fin d'une carrière sportive n'est pas une fin, mais le début d'un nouveau défi à relever.",
-      author: "Ancien champion de tennis",
-      color: "rgba(33, 150, 243, 0.8)",
-      font: "'Montserrat', sans-serif"
+        title: "Résilience",
+        quote: "La fin d'une carrière sportive n'est pas une fin, mais le début d'un nouveau défi à relever.",
+        author: "Ancien champion de tennis",
+        color: "rgba(33, 150, 243, 0.8)",
+        font: "'Montserrat', sans-serif",
+        titleSize: "32px",
+        quoteSize: "24px"
+    },
+    {
+        title: "Transformation",
+        quote: "Chaque compétence acquise dans le sport est un atout pour votre nouvelle vie professionnelle.",
+        author: "Ex-nageuse olympique",
+        color: "rgba(156, 39, 176, 0.8)",
+        font: "'Merriweather', serif",
+        titleSize: "29px",
+        quoteSize: "21px"
+    },
+    {
+        title: "Courage",
+        quote: "Oser se réinventer après une carrière sportive est un acte de bravoure et d'humilité.",
+        author: "Ancien boxeur professionnel",
+        color: "rgba(244, 67, 54, 0.8)",
+        font: "'Lora', serif",
+        titleSize: "31px",
+        quoteSize: "23px"
+    },
+    {
+        title: "Apprentissage",
+        quote: "La reconversion est une opportunité d'apprendre et de grandir au-delà du terrain.",
+        author: "Ex-gymnaste de haut niveau",
+        color: "rgba(0, 150, 136, 0.8)",
+        font: "'Poppins', sans-serif",
+        titleSize: "27px",
+        quoteSize: "19px"
     }
-  ];
+];
 
   const handlePrevCard = () => {
     setCurrentCardIndex((prevIndex) => 
@@ -98,7 +131,7 @@ const About = () => {
                 objectFit: 'cover'
               }}
             >
-              <source src="src/assets/videos/206632_small.mp4" type="video/mp4" />
+              <source src="src/assets/videos/464879_African American_Multi-ethnic_1080x1920.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             <Box
@@ -107,7 +140,7 @@ const About = () => {
                 top: 0,
                 left: 0,
                 width: '100%',
-                height: '100vh',
+                height: '100%',
                 backgroundColor: 'rgba(0, 0, 0, 0.6)',
               }}
             />
@@ -123,7 +156,7 @@ const About = () => {
         sx={{ 
           position: 'relative', 
           width: '100%',
-          height: { xs: '400px', sm: '500px' },
+          height: { xs: '400px', sm: '600px' },
           marginBottom: '40px',
           display: 'flex',
           justifyContent: 'center',
@@ -135,28 +168,24 @@ const About = () => {
           sx={{ 
             position: 'relative', 
             width: '100%',
-            height: { xs: '400px', sm: '500px' },
+            height: { xs: '400px', sm: '600px' },
             marginBottom: '40px',
             overflow: 'hidden',
           }}
         >
-          <video
-            autoPlay
-            loop
-            muted
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              zIndex: 1,
-            }}
-          >
-            <source src="src/assets/videos/206632_small.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+            <img
+      src="src/assets/img/2151101756.jpg" // Remplacez ceci par le chemin de votre image
+      alt="Description de l'image"
+      style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+        zIndex: 1,
+      }}
+    />
 
           <Box
             sx={{
@@ -166,9 +195,11 @@ const About = () => {
               maxWidth: '1200px',
               perspective: '1000px',
               backgroundColor: 'rgba(0, 0, 0, 0.6)',
-              zIndex: 1,
+              zIndex: 3,
             }}
           />
+
+          
           
           {[...Array(3)].map((_, i) => {
             const index = (currentCardIndex + i) % values.length;
@@ -176,7 +207,7 @@ const About = () => {
               <Card
                 key={index}
                 sx={{
-                  width: { xs: '240px', sm: '280px' },
+                  width: { xs: '240px', sm: '500px' },
                   height: { xs: '180px', sm: '200px' },
                   position: 'absolute',
                   left: '50%',

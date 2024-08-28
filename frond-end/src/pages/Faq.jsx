@@ -7,9 +7,45 @@ import {
   Box,
   Container,
   Grid,
-  Paper,
+  Card,
+  CardContent,
+  CardMedia,
+  Button,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import { styled } from '@mui/material/styles';
+
+// Composants stylisés
+const StyledAccordion = styled(Accordion)(({ theme }) => ({
+  background: `linear-gradient(45deg, #008CBA 30%, #FF9800 90%)`,
+  borderRadius: '15px',
+  marginBottom: theme.spacing(2),
+  '&:before': {
+    display: 'none',
+  },
+}));
+
+const StyledAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
+  borderRadius: '15px',
+  '& .MuiAccordionSummary-content': {
+    margin: '12px 0',
+  },
+}));
+
+const StyledAccordionDetails = styled(AccordionDetails)(({ theme }) => ({
+  backgroundColor: theme.palette.background.paper,
+  borderBottomLeftRadius: '15px',
+  borderBottomRightRadius: '15px',
+}));
+
+const VideoCard = styled(Card)(({ theme }) => ({
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  transition: 'transform 0.15s ease-in-out',
+  '&:hover': { transform: 'scale3d(1.05, 1.05, 1)' },
+}));
 
 const FAQReconversionSportive = () => {
   const faqs = [
@@ -34,77 +70,89 @@ const FAQReconversionSportive = () => {
   const tutorials = [
     {
       title: "Comment réussir sa reconversion sportive",
-      videoUrl: "https://www.youtube.com/embed/N8QPnQ8Dzjw", // Remplacez par l'ID de votre vidéo
+      videoUrl: "https://www.youtube.com/embed/N8QPnQ8Dzjw",
     },
     {
       title: "Les étapes de la reconversion professionnelle",
-      videoUrl: "https://www.youtube.com/embed/U26nMJHoj0E", // Remplacez par l'ID de votre vidéo
+      videoUrl: "https://www.youtube.com/embed/U26nMJHoj0E",
     },
     {
       title: "Gérer la transition émotionnelle après le sport",
-      videoUrl: "https://www.youtube.com/embed/bBYEviupPN4", // Remplacez par l'ID de votre vidéo
+      videoUrl: "https://www.youtube.com/embed/bBYEviupPN4",
     },
     {
-    title: "Comment faire un bilan de compétences pour un sportif de haut niveau",
-    videoUrl: "https://www.youtube.com/embed/6G8WAXvq6Xk",
-  },
-  {
-    title: "Les étapes clés pour réussir sa reconversion après une carrière sportive",
-    videoUrl: "https://www.youtube.com/embed/Vao8TLBkBbg",
-  },
-  {
-    title: "Développer sa marque personnelle après une carrière sportive",
-    videoUrl: "https://www.youtube.com/embed/aXOIlNcSTRg&t=29s",
-  },
+      title: "Comment faire un bilan de compétences pour un sportif de haut niveau",
+      videoUrl: "https://www.youtube.com/embed/6G8WAXvq6Xk",
+    },
+    {
+      title: "Les étapes clés pour réussir sa reconversion après une carrière sportive",
+      videoUrl: "https://www.youtube.com/embed/Vao8TLBkBbg",
+    },
+    {
+      title: "Développer sa marque personnelle après une carrière sportive",
+      videoUrl: "https://www.youtube.com/embed/aXOIlNcSTRg&t=29s",
+    },
   ];
 
   return (
-    <Container maxWidth="md">
-      <Box sx={{ my: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom align="center">
+    <Container maxWidth="lg">
+      <Box sx={{ my: 6 }}>
+        <Typography variant="h2" component="h1" gutterBottom align="center" sx={{ fontWeight: 'bold', color: '#FE6B8B' }}>
           FAQ Reconversion Sportive
         </Typography>
 
-        {faqs.map((faq, index) => (
-          <Accordion key={index}>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls={`panel${index}a-content`}
-              id={`panel${index}a-header`}
-            >
-              <Typography>{faq.question}</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography>{faq.answer}</Typography>
-            </AccordionDetails>
-          </Accordion>
-        ))}
+        <Box sx={{ mb: 6 }}>
+          {faqs.map((faq, index) => (
+            <StyledAccordion key={index}>
+              <StyledAccordionSummary
+                expandIcon={<ExpandMoreIcon sx={{ color: 'white' }} />}
+                aria-controls={`panel${index}a-content`}
+                id={`panel${index}a-header`}
+              >
+                <Typography sx={{ color: 'white', fontWeight: 'bold' }}>{faq.question}</Typography>
+              </StyledAccordionSummary>
+              <StyledAccordionDetails>
+                <Typography>{faq.answer}</Typography>
+              </StyledAccordionDetails>
+            </StyledAccordion>
+          ))}
+        </Box>
 
-        <Box sx={{ mt: 4 }}>
-          <Typography variant="h5" gutterBottom>
-            Tutoriels Vidéo
-          </Typography>
-          <Grid container spacing={2}>
-            {tutorials.map((tutorial, index) => (
-              <Grid item xs={12} md={6} key={index}>
-                <Paper elevation={3} sx={{ padding: 2 }}>
-                  <Typography variant="h6" gutterBottom>
+        <Typography variant="h3" gutterBottom sx={{ textAlign: 'center', color: '#FF8E53', mb: 4 }}>
+          Tutoriels Vidéo
+        </Typography>
+        <Grid container spacing={4}>
+          {tutorials.map((tutorial, index) => (
+            <Grid item xs={12} md={4} key={index}>
+              <VideoCard>
+                <CardMedia
+                  component="img"
+                  height="140"
+                  image={`https://img.youtube.com/vi/${tutorial.videoUrl.split('/').pop()}/0.jpg`}
+                  alt={tutorial.title}
+                />
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography gutterBottom variant="h6" component="div">
                     {tutorial.title}
                   </Typography>
-                  <iframe
-                    width="100%"
-                    height="200"
-                    src={tutorial.videoUrl}
-                    title={tutorial.title}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </Paper>
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
+                </CardContent>
+                <Button 
+                  startIcon={<PlayArrowIcon />}
+                  variant="contained"
+                  sx={{ 
+                    m: 2,
+                    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+                    color: 'white',
+                  }}
+                  href={tutorial.videoUrl}
+                  target="_blank"
+                >
+                  Regarder
+                </Button>
+              </VideoCard>
+            </Grid>
+          ))}
+        </Grid>
       </Box>
     </Container>
   );

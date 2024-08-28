@@ -22,9 +22,9 @@ const scrollAnimation = keyframes`
 
 export default function Community () {
   const communityMembers = [
-    { name: 'Jean Dupont', sport: 'Football', newCareer: 'Coach sportif', image: 'url_to_image1', color: '#FFA07A' },
-    { name: 'Marie Martin', sport: 'Natation', newCareer: 'Nutritionniste', image: 'url_to_image2', color: '#98FB98' },
-    { name: 'Pierre Durand', sport: 'Tennis', newCareer: 'Entrepreneur', image: 'url_to_image3', color: '#87CEFA' },
+    { name: 'Jean Dupont', sport: 'Football', newCareer: 'Coach sportif', image: 'url_to_image1' },
+    { name: 'Marie Martin', sport: 'Natation', newCareer: 'Nutritionniste', image: 'url_to_image2' },
+    { name: 'Pierre Durand', sport: 'Tennis', newCareer: 'Entrepreneur', image: 'url_to_image3' },
   ];
 
   const upcomingEvents = [
@@ -49,7 +49,7 @@ export default function Community () {
           sx={{ 
             fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
             fontWeight: 'bold',
-            background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+            background: `linear-gradient(45deg, #008CBA 30%, #FF9800 90%)`,
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             whiteSpace: 'nowrap',
@@ -62,32 +62,37 @@ export default function Community () {
           component={Link}
           to="/contact"
           variant="contained" 
-          color="primary" 
-          size="large" 
-          sx={{ mt: 2 }}
+          sx={{ 
+            mt: 2, 
+            bgcolor: '#008CBA',
+            color: '#ffffff',
+            '&:hover': {
+              bgcolor: '#005f7f',
+            }
+          }}
         >
           Rejoignez-nous
         </Button>
       </Box>
 
-      <Typography variant="h4" gutterBottom sx={{ fontSize: { xs: '1.5rem', sm: '2rem', md: '2.125rem' } }}>
+      <Typography variant="h4" gutterBottom sx={{ fontSize: { xs: '1.5rem', sm: '2rem', md: '2.125rem' }, color: '#008CBA' }}>
         Nos membres
       </Typography>
       <Grid container spacing={2}>
         {communityMembers.map((member, index) => (
           <Grid item key={index} xs={12} sm={6} md={4}>
-            <Card sx={{ backgroundColor: member.color }}>
+            <Card sx={{ backgroundColor: '#f9f9f9', boxShadow: 2 }}>
               <CardContent>
                 <Box display="flex" alignItems="center" mb={2}>
                   <Avatar src={member.image} alt={member.name} sx={{ width: 40, height: 40, mr: 2 }} />
-                  <Typography variant="h6" component="div" sx={{ fontSize: '1rem' }}>
+                  <Typography variant="h6" component="div" sx={{ fontSize: '1rem', color: '#333' }}>
                     {member.name}
                   </Typography>
                 </Box>
-                <Typography variant="body2">
+                <Typography variant="body2" color="#555">
                   Ancien sport : {member.sport}
                 </Typography>
-                <Typography variant="body2">
+                <Typography variant="body2" color="#555">
                   Nouvelle carrière : {member.newCareer}
                 </Typography>
               </CardContent>
@@ -97,41 +102,55 @@ export default function Community () {
       </Grid>
 
       <Box my={4}>
-        <Typography variant="h4" gutterBottom sx={{ fontSize: { xs: '1.5rem', sm: '2rem', md: '2.125rem' } }}>
+        <Typography variant="h4" gutterBottom sx={{ fontSize: { xs: '1.5rem', sm: '2rem', md: '2.125rem' }, color: '#008CBA' }}>
           Témoignages
         </Typography>
+
         <Grid container spacing={2}>
-          {testimonials.map((testimonial, index) => (
-            <Grid item key={index} xs={12} sm={6}>
-              <Card sx={{ background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)', color: 'white' }}>
-                <CardContent>
-                  <Box display="flex" alignItems="center" mb={2}>
-                    <Avatar src={testimonial.image} alt={testimonial.name} sx={{ width: 40, height: 40, mr: 2 }} />
-                    <Typography variant="h6" gutterBottom sx={{ fontSize: '1rem' }}>
-                      {testimonial.name}
-                    </Typography>
-                  </Box>
-                  <Typography variant="body2" gutterBottom>
-                    {testimonial.sport} → {testimonial.newCareer}
-                  </Typography>
-                  <Typography variant="body2" gutterBottom>
-                    "{testimonial.testimonial}"
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
+  {testimonials.map((testimonial, index) => (
+    <Grid item key={index} xs={12} sm={6}>
+      <Card 
+        sx={{ 
+          height: '100%',  // Assure que toutes les cartes ont la même hauteur
+          background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)', 
+          color: '#ffffff'
+        }}
+      >
+        <CardContent 
+          sx={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            height: '100%'  // Remplit toute la hauteur de la Card
+          }}
+        >
+          <Box display="flex" alignItems="center" mb={2}>
+            <Avatar src={testimonial.image} alt={testimonial.name} sx={{ width: 40, height: 40, mr: 2 }} />
+            <Typography variant="h6" gutterBottom sx={{ fontSize: '1rem' }}>
+              {testimonial.name}
+            </Typography>
+          </Box>
+          <Typography variant="body2" gutterBottom>
+            {testimonial.sport} → {testimonial.newCareer}
+          </Typography>
+          <Typography variant="body2" sx={{ flexGrow: 1 }}>  {/* Utilise l'espace restant */}
+            "{testimonial.testimonial}"
+          </Typography>
+        </CardContent>
+      </Card>
+    </Grid>
+  ))}
+</Grid>
+
       </Box>
 
       <Box my={4}>
-        <Typography variant="h4" gutterBottom sx={{ fontSize: { xs: '1.5rem', sm: '2rem', md: '2.125rem' } }}>
+        <Typography variant="h4" gutterBottom sx={{ fontSize: { xs: '1.5rem', sm: '2rem', md: '2.125rem' }, color: '#008CBA' }}>
           Événements à venir
         </Typography>
         <Grid container spacing={2}>
           {upcomingEvents.map((event, index) => (
             <Grid item key={index} xs={12} sm={6} md={3}>
-              <Card>
+              <Card sx={{ border: '1px solid #008CBA' }}>
                 <CardActionArea>
                   <CardMedia
                     component="img"
@@ -141,10 +160,10 @@ export default function Community () {
                     sx={{ objectFit: 'contain' }}
                   />
                   <CardContent>
-                    <Typography gutterBottom variant="h6" component="div" sx={{ fontSize: '1rem' }}>
+                    <Typography gutterBottom variant="h6" component="div" sx={{ fontSize: '1rem', color: '#008CBA' }}>
                       {event.title}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2" color="#555">
                       {event.date}
                     </Typography>
                   </CardContent>
@@ -156,4 +175,4 @@ export default function Community () {
       </Box>
     </Container>
   );
-};
+}

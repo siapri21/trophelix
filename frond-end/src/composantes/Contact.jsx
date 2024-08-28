@@ -10,11 +10,13 @@ export default function ContactForm() {
     subject: "",
     message: "",
   });
-
+  
   // États pour gérer l'affichage et le type de toast (notification)
   const [showToast, setShowToast] = useState(false);
   const [toastType, setToastType] = useState("success");
-
+  // Nouvel état pour suivre si le formulaire a déjà été envoyé
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  
   // Fonction pour mettre à jour l'état du formulaire lorsqu'un champ est modifié
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -23,7 +25,7 @@ export default function ContactForm() {
       [name]: value,
     }));
   };
-
+  
   // Fonction pour réinitialiser le formulaire
   const resetForm = () => {
     setFormData({
@@ -34,9 +36,16 @@ export default function ContactForm() {
       message: "",
     });
   };
-
+  
   // Fonction pour envoyer les données du formulaire
   const sendContact = () => {
+    // Vérifier si le formulaire a déjà été envoyé
+    if (formSubmitted) {
+      setToastType("warning");
+      setShowToast(true);
+      return; // Arrêter l'exécution si le formulaire a déjà été envoyé
+    }
+  
     axios
       .get("http://localhost:5000/", {
         params: formData, // Envoie toutes les données du formulaire
@@ -46,6 +55,7 @@ export default function ContactForm() {
         setToastType("success");
         setShowToast(true);
         resetForm(); // Réinitialise le formulaire après un envoi réussi
+        setFormSubmitted(true); // Marquer le formulaire comme envoyé
       })
       .catch(() => {
         // En cas d'erreur
@@ -53,7 +63,6 @@ export default function ContactForm() {
         setShowToast(true);
       });
   };
-
   return (
     <div className="flex max-w-4xl mx-auto p-6 bg-gray-100 rounded-lg shadow-lg" style={{ justifyContent: "center", alignItems: "center" }}>
       <div className="flex-1 pl-6">
@@ -142,7 +151,7 @@ export default function ContactForm() {
         {/* Bouton d'envoi */}
         <button
           onClick={sendContact}
-          className="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300"
+          className="w-full bg-[#008CBA] text-white font-bold py-2 px-4 rounded-lg hover:bg-[#005f7f] transition duration-300"
         >
           Envoyer
         </button>
