@@ -10,13 +10,13 @@ export default function ContactForm() {
     subject: "",
     message: "",
   });
-  
+
   // États pour gérer l'affichage et le type de toast (notification)
   const [showToast, setShowToast] = useState(false);
   const [toastType, setToastType] = useState("success");
   // Nouvel état pour suivre si le formulaire a déjà été envoyé
   const [formSubmitted, setFormSubmitted] = useState(false);
-  
+
   // Fonction pour mettre à jour l'état du formulaire lorsqu'un champ est modifié
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -25,7 +25,7 @@ export default function ContactForm() {
       [name]: value,
     }));
   };
-  
+
   // Fonction pour réinitialiser le formulaire
   const resetForm = () => {
     setFormData({
@@ -36,7 +36,7 @@ export default function ContactForm() {
       message: "",
     });
   };
-  
+
   // Fonction pour envoyer les données du formulaire
   const sendContact = () => {
     // Vérifier si le formulaire a déjà été envoyé
@@ -45,7 +45,7 @@ export default function ContactForm() {
       setShowToast(true);
       return; // Arrêter l'exécution si le formulaire a déjà été envoyé
     }
-  
+
     axios
       .get("http://localhost:5000/", {
         params: formData, // Envoie toutes les données du formulaire
@@ -67,13 +67,12 @@ export default function ContactForm() {
     <div className="flex max-w-4xl mx-auto p-6 bg-gray-100 rounded-lg shadow-lg" style={{ justifyContent: "center", alignItems: "center" }}>
       <div className="flex-1 pl-6">
         <h2 className="text-2xl font-bold mb-6 text-gray-800">Contactez-nous</h2>
-        
+
         {/* Champ Nom */}
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Nom</label>
           <input
             type="text"
-            id="nom"
             name="nom"
             value={formData.nom}
             onChange={handleInputChange}
