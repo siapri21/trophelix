@@ -11,12 +11,12 @@ const Event = () => {
 
   // Plus d'événements avec des images
   const events = [
-    { date: '2024-08-01', title: 'Réunion d\'équipe', details: 'Discussion sur le nouveau projet', location: 'Salle de conférence A', image: 'src/assets/img/reunion_equipe.jpg' },
-    { date: '2024-08-05', title: 'Présentation du projet', details: 'Présentation aux investisseurs', location: 'Auditorium principal', image: 'src/assets/img/12291315_Two colleagues analyzing work together.jpg' },
-    { date: '2024-08-10', title: 'Deadline du rapport', details: 'Remise du rapport trimestriel', location: 'Bureau du directeur', image: 'src/assets/img/rapport.jpg' },
-    { date: '2024-08-15', title: 'Formation', details: 'Formation sur les nouvelles technologies', location: 'Salle de formation B', image: 'src/assets/img/formation.jpg' },
-    { date: '2024-08-20', title: 'Réunion clients', details: 'Rencontre avec les clients principaux', location: 'Salle de réunion C', image: 'src/assets/img/reunion_clients.jpg' },
-    { date: '2024-08-25', title: 'Lancement produit', details: 'Lancement du nouveau produit', location: 'Hall d\'exposition', image: 'src/assets/img/lancement.jpg' },
+    { date: '2024-08-01', title: 'Réunion d\'équipe', details: 'Discussion sur le nouveau projet', location: 'Salle de conférence A', image: '../assets/img/reunion_equipe.jpg' },
+    { date: '2024-08-05', title: 'Présentation du projet', details: 'Présentation aux investisseurs', location: 'Auditorium principal', image: '../assets/img/12291315_Two colleagues analyzing work together.jpg' },
+    { date: '2024-08-10', title: 'Deadline du rapport', details: 'Remise du rapport trimestriel', location: 'Bureau du directeur', image: '../assets/img/rapport.jpg' },
+    { date: '2024-08-15', title: 'Formation', details: 'Formation sur les nouvelles technologies', location: 'Salle de formation B', image: '../assets/img/formation.jpg' },
+    { date: '2024-08-20', title: 'Réunion clients', details: 'Rencontre avec les clients principaux', location: 'Salle de réunion C', image: '../assets/img/reunion_clients.jpg' },
+    { date: '2024-08-25', title: 'Lancement produit', details: 'Lancement du nouveau produit', location: 'Hall d\'exposition', image: '../assets/img/lancement.jpg' },
     { date: '2024-08-30', title: 'Bilan mensuel', details: 'Revue des performances du mois', location: 'Salle de conférence principale', image: 'https://i.pinimg.com/564x/6f/25/29/6f2529fcef64a6d0bfbb7682f55fb131.jpg' },
   ];
 

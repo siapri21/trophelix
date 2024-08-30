@@ -28,10 +28,10 @@ export default function Community () {
   ];
 
   const upcomingEvents = [
-    { title: 'Atelier de reconversion', date: '15 septembre 2024', image: 'src/assets/img/4246b4b68f587bc984048dac1aa9266c-removebg-preview.png' },
-    { title: 'Conférence sur les opportunités post-carrière', date: '3 octobre 2024', image: 'src/assets/img/185405565_10753323-removebg-preview.png' },
-    { title: 'Séminaire sur le développement personnel', date: '20 octobre 2024', image: 'src/assets/img/30274af8d4e72e272c068574ec97ede8-removebg-preview.png' },
-    { title: 'Webinaire sur la gestion de carrière', date: '5 novembre 2024', image: 'src/assets/img/birthday-greeting-card-template.png' },
+    { title: 'Atelier de reconversion', date: '15 septembre 2024', image: '../assets/img/4246b4b68f587bc984048dac1aa9266c-removebg-preview.png' },
+    { title: 'Conférence sur les opportunités post-carrière', date: '3 octobre 2024', image: '../assets/img/185405565_10753323-removebg-preview.png' },
+    { title: 'Séminaire sur le développement personnel', date: '20 octobre 2024', image: '../assets/img/30274af8d4e72e272c068574ec97ede8-removebg-preview.png' },
+    { title: 'Webinaire sur la gestion de carrière', date: '5 novembre 2024', image: '../assets/img/birthday-greeting-card-template.png' },
   ];
 
   const testimonials = [

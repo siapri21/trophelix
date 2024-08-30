@@ -131,7 +131,7 @@ const About = () => {
                 objectFit: 'cover'
               }}
             >
-              <source src="src/assets/videos/464879_African American_Multi-ethnic_1080x1920.mp4" type="video/mp4" />
+              <source src="../assets/videos/464879_African American_Multi-ethnic_1080x1920.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             <Box
@@ -174,7 +174,7 @@ const About = () => {
           }}
         >
             <img
-      src="src/assets/img/2151101756.jpg" // Remplacez ceci par le chemin de votre image
+      src="../assets/img/2151101756.jpg" // Remplacez ceci par le chemin de votre image
       alt="Description de l'image"
       style={{
         position: 'absolute',

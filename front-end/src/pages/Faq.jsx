@@ -90,7 +90,7 @@ const FAQReconversionSportive = () => {
     },
     {
       title: "Développer sa marque personnelle après une carrière sportive",
-      videoUrl: "https://www.youtube.com/embed/aXOIlNcSTRg&t=29s",
+      videoUrl: "https://www.youtube.com/embed/ki2cZOYfgWw",
     },
   ];
 
