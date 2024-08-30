@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect } from 'react';
-import { Calendar } from "@/components/ui/calendar";
+import { Calendar } from './ui/calendar';
 import { Card, Typography, Grid, Box, Paper } from '@mui/material';
 import dayjs from 'dayjs';
 

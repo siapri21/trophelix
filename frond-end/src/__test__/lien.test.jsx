@@ -1,4 +1,4 @@
-import Link from '@/composantes/lien';
+import Link from '@/composants/lien';
 import renderer from 'react-test-renderer';
 import { expect, it } from 'vitest';
 

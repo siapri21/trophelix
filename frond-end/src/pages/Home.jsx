@@ -1,12 +1,12 @@
 // src/pages/Home.js
 import React from 'react';
 import { Container, Typography, Grid } from '@mui/material';
-import Carousel from '../composantes/Carousel';
-import ImageTextComponent from '../composantes/ImageComposant';
-import RessourceCard from '../composantes/Resource';
-import Event from '../composantes/event';
-import TeamMember from '../composantes/TeamMember';
-import ContactForm from '../composantes/Contact';
+import Carousel from '@/components/Carousel';
+import ImageTextComponent from '@/components/ImageComposant';
+import Event from '@/components/event';
+import TeamMember from '@/components/TeamMember';
+import ContactForm from '@/components/Contact';
+import RessourceCard from '@/components/Resource';
 
 
 export default function Home() {
@@ -20,7 +20,7 @@ export default function Home() {
         <ImageTextComponent/>
         </Grid>
         <Grid>
-          <RessourceCard/>
+        <RessourceCard/>
         </Grid>
         <Grid>
           <Event/>

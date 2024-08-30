@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Logo from '../assets/img/trophelix_logo-removebg-preview.png';
 
-const pages = ['Communaute', 'Contact', 'Faq', 'Qui sommes-nous'];
+const pages = ['Actualite','Communaute', 'Contact', 'Faq', 'Qui sommes-nous'];
 
 export default function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -68,8 +68,6 @@ export default function ResponsiveAppBar() {
             <Typography
               variant="h6"
               noWrap
-              component="a"
-              href="/"
               sx={{
                 display: { xs: 'none', md: 'flex' },
                 fontFamily: 'monospace',

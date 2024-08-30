@@ -1,19 +1,20 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Layout from './composantes/Layout';
+import Layout from './components/Layout';
 import Home from './pages/Home';
 import About from './pages/About';
 import Community from './pages/Community';
 import Job from './pages/Job';
 import CustomizedAccordions from './pages/Faq';
-// import LoginForm from './pages/login';
-import ContactForm from './composantes/Contact';
+import ContactForm from './components/Contact';
 import './App.css';
+import Actualite from './pages/actualite';
 
 
 
 
-function App() {
+
+export default function  App() {
   return (
     <BrowserRouter>
       <Routes>
@@ -23,8 +24,9 @@ function App() {
           <Route path="communaute" element={<Community/>} />
           <Route path="offredemploi" element={<Job/>} />
           <Route path="Faq" element={<CustomizedAccordions/>}/>
-          {/* <Route path="login" element={<LoginForm/>}/> */}
+          {/* <Route path="" element={<LoginForm/>}/> */}
           <Route path="Contact" element={<ContactForm/>} />
+          <Route path="actualite" element={<Actualite/>} />
         </Route>
       </Routes>
     </BrowserRouter>
@@ -32,4 +34,3 @@ function App() {
   );
 }
 
-export default App;
