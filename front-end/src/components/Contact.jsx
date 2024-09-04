@@ -1,50 +1,77 @@
-// import axios from "axios";
-import emailjs from 'emailjs-com';
+import axios from "axios";
 import React, { useState } from "react";
 
 
+
 export default function ContactForm() {
+  // État pour stocker toutes les données du formulaire
+  const [formData, setFormData] = useState({
+    nom: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
 
-  function sendEmail(e) {
-    e.preventDefault();  // Empêche le comportement par défaut de soumission du formulaire
 
-    // Envoyer l'email en utilisant les données du formulaire
-    emailjs.sendForm('service_qg3czh8', 'template_i3s6res', e.target, 'T9FRBzihCfBNdbfee')
-      .then((result) => {
-          // Envoyer un email de confirmation à l'expéditeur
-          envoyerEmailConfirmation(e.target);
+  // États pour gérer l'affichage et le type de toast (notification)
+  const [showToast, setShowToast] = useState(false);
+  const [toastType, setToastType] = useState("success");
 
-          // Recharger la page si nécessaire
-          window.location.reload();
-      }, (error) => {
-          console.log(error.text);
+  // Nouvel état pour suivre si le formulaire a déjà été envoyé
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  // Fonction pour mettre à jour l'état du formulaire lorsqu'un champ est modifié
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+
+  // Fonction pour réinitialiser le formulaire
+  const resetForm = () => {
+    setFormData({
+      nom: "",
+      email: "",
+      phone: "",
+      subject: "",
+      message: "",
+    });
+  };
+
+
+  // Fonction pour envoyer les données du formulaire
+  const sendContact = () => {
+    // Vérifier si le formulaire a déjà été envoyé
+    if (formSubmitted) {
+      setToastType("warning");
+      setShowToast(true);
+      return; // Arrêter l'exécution si le formulaire a déjà été envoyé
+    }
+
+    axios
+      .get("http://localhost:5000/", {
+        params: formData, // Envoie toutes les données du formulaire
+      })
+      .then(() => {
+        // En cas de succès
+        setToastType("success");
+        setShowToast(true);
+        resetForm(); // Réinitialise le formulaire après un envoi réussi
+        setFormSubmitted(true); // Marquer le formulaire comme envoyé
+      })
+      .catch(() => {
+        // En cas d'erreur
+        setToastType("danger");
+        setShowToast(true);
       });
-}
+  };
 
-// Fonction pour envoyer un email de confirmation à l'expéditeur
-function envoyerEmailConfirmation(form) {
-    // Extraire l'email de l'expéditeur depuis le formulaire
-    const emailExpediteur = form.querySelector('input[name="email"]').value;
-
-    // Définir les paramètres pour l'email de confirmation
-    const parametresConfirmation = {
-        to_email: emailExpediteur,  // L'email de l'expéditeur
-        message: 'Merci pour votre message ! Nous avons bien reçu votre email et nous vous répondrons sous peu.',  // Message personnalisé
-        // Ajouter d'autres paramètres personnalisés si nécessaire
-    };
-
-    // Envoyer l'email de confirmation en utilisant un autre template
-    emailjs.send('service_qg3czh8', 'template_confirmation', parametresConfirmation, 'T9FRBzihCfBNdbfee')
-      .then((result) => {
-          console.log('Email de confirmation envoyé avec succès !');
-      }, (error) => {
-          console.log('Échec de l\'envoi de l\'email de confirmation :', error.text);
-      });
-}
-
-  
   return (
-    <form   onSubmit={sendEmail} className="flex max-w-4xl mx-auto p-6 bg-gray-100 rounded-lg shadow-lg" style={{ justifyContent: "center", alignItems: "center" }}>
+    <div className="flex max-w-4xl mx-auto p-6 bg-gray-100 rounded-lg shadow-lg" style={{ justifyContent: "center", alignItems: "center" }}>
       <div className="flex-1 pl-6">
         <h2 className="text-2xl font-bold mb-6 text-gray-800">Contactez-nous</h2>
 
@@ -53,14 +80,14 @@ function envoyerEmailConfirmation(form) {
           <label className="block text-gray-700 text-sm font-bold mb-2">Nom</label>
           <input
             type="text"
+            id="nom"
             name="nom"
-            // value={formData.nom}
-            // onChange={handleInputChange}
+            value={formData.nom}
+            onChange={handleInputChange}
             className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"
             required
           />
         </div>
-
         {/* Champ Email */}
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Email</label>
@@ -68,14 +95,12 @@ function envoyerEmailConfirmation(form) {
             type="email"
             id="email"
             name="email"
-            
-            // value={formData.email}
-            // onChange={handleInputChange}
+            value={formData.email}
+            onChange={handleInputChange}
             className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"
             required
           />
         </div>
-
         {/* Champ Téléphone */}
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">N° de téléphone</label>
@@ -83,13 +108,12 @@ function envoyerEmailConfirmation(form) {
             type="tel"
             id="phone"
             name="phone"
-            // value={formData.phone}
-            // onChange={handleInputChange}
+            value={formData.phone}
+            onChange={handleInputChange}
             className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"
             required
           />
         </div>
-
         {/* Champ Objet */}
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Objet</label>
@@ -97,27 +121,25 @@ function envoyerEmailConfirmation(form) {
             type="text"
             id="subject"
             name="subject"
-            // value={formData.subject}
-            // onChange={handleInputChange}
+            value={formData.subject}
+            onChange={handleInputChange}
             className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"
             required
           />
         </div>
-
         {/* Champ Message */}
         <div className="mb-6">
           <label className="block text-gray-700 text-sm font-bold mb-2">Message</label>
           <textarea
             id="message"
             name="message"
-            // value={formData.message}
-            // onChange={handleInputChange}
+            value={formData.message}
+            onChange={handleInputChange}
             className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500 h-32 resize-none"
             placeholder="Votre message"
             required
           ></textarea>
         </div>
-
         {/* Case à cocher pour le consentement */}
         <div className="mb-6">
           <label className="flex items-center">
@@ -127,28 +149,25 @@ function envoyerEmailConfirmation(form) {
             </span>
           </label>
         </div>
-
         {/* Bouton d'envoi */}
         <button
-        type="submit" value="Send"
-          className="w-full bg-[#008CBA] text-white font-bold py-2 px-4 rounded-lg hover:bg-[#005f7f] transition duration-300"
+          onClick={sendContact}
+          className="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300"
         >
           Envoyer
         </button>
       </div>
-
       {/* Notification Toast */}
       <div className="fixed top-12 m-5 right-5 z-50">
-        {/* {showToast && ( */}
+        {showToast && (
           <div
-            // id={`toast-${toastType}`}
+            id={`toast-${toastType}`}
             className={`flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800`}
             role="alert"
           >
             <div
-              className={`inline-flex items-center justify-center flex-shrink-0 w-8 h-8 `}
+              className={`inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-${toastType === "success" ? "green" : "red"}-500 bg-${toastType === "success" ? "green" : "red"}-100 rounded-lg dark:bg-${toastType === "success" ? "green" : "red"}-800 dark:text-${toastType === "success" ? "green" : "red"}-200`}
             >
-              {/* text-${toastType === "success" ? "green" : "red"}-500 bg-${toastType === "success" ? "green" : "red"}-100 rounded-lg dark:bg-${toastType === "success" ? "green" : "red"}-800 dark:text-${toastType === "success" ? "green" : "red"}-200 */}
               {/* Icône de succès ou d'erreur */}
               <svg
                 className="w-5 h-5"
@@ -163,9 +182,9 @@ function envoyerEmailConfirmation(form) {
             </div>
             <div className="ms-3 text-sm font-normal">
               {/* Message du toast en fonction du type */}
-              {/* {toastType === "success" */}
-                {/* ? "Message envoyé avec succès." */}
-                {/* : "Erreur lors de l'envoi du message."} */}
+              {toastType === "success"
+                ? "Message envoyé avec succès."
+                : "Erreur lors de l'envoi du message."}
             </div>
             <button
               type="button"
@@ -191,85 +210,8 @@ function envoyerEmailConfirmation(form) {
               </svg>
             </button>
           </div>
-        {/* )} */}
+        )}
       </div>
-    </form>
+    </div>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-// code pour le back-end
-
-
-// État pour stocker toutes les données du formulaire
-  // const [formData, setFormData] = useState({
-  //   nom: "",
-  //   email: "",
-  //   phone: "",
-  //   subject: "",
-  //   message: "",
-  // });
-
-  // États pour gérer l'affichage et le type de toast (notification)
-  // const [showToast, setShowToast] = useState(false);
-  // const [toastType, setToastType] = useState("success");
-  // Nouvel état pour suivre si le formulaire a déjà été envoyé
-  // const [formSubmitted, setFormSubmitted] = useState(false);
-
-  // Fonction pour mettre à jour l'état du formulaire lorsqu'un champ est modifié
-  // const handleInputChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setFormData((prevData) => ({
-  //     ...prevData,
-  //     [name]: value,
-  //   }));
-  // };
-
-  // Fonction pour réinitialiser le formulaire
-  // const resetForm = () => {
-  //   setFormData({
-  //     nom: "",
-  //     email: "",
-  //     phone: "",
-  //     subject: "",
-  //     message: "",
-  //   });
-  // };
-
-  // Fonction pour envoyer les données du formulaire
-  // const sendContact = () => {
-    // Vérifier si le formulaire a déjà été envoyé
-    // if (formSubmitted) {
-    //   setToastType("warning");
-    //   setShowToast(true);
-      // return; // Arrêter l'exécution si le formulaire a déjà été envoyé
-    // }
-
-    // axios:
-      // .get("http://localhost:5000/", {
-        // params: formData, // Envoie toutes les données du formulaire
-      // })
-      // .then(() => {
-        // En cas de succès
-        // setToastType("success");
-        // setShowToast(true);
-        // resetForm(); // Réinitialise le formulaire après un envoi réussi
-        // setFormSubmitted(true); // Marquer le formulaire comme envoyé
-      // })
-      // .catch(() => {
-        // En cas d'erreur
-        // setToastType("danger");
-        // setShowToast(true);
-      // });
-  // };

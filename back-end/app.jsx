@@ -12,7 +12,7 @@ app.use((req, res, next) => {
   next();
 });
 
-export default function sendEmail({ email, subject, message }) {
+function sendEmail({ email, subject, message }) {
     const mailAdmin =  "ouattara10siap@gmail.com";
   return new Promise((resolve, reject) => {
     var transporter = nodemailer.createTransport({

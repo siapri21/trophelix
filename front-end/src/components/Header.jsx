@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Logo from '../assets/img/trophelix_logo-removebg-preview.png';
 
-const pages = ['Actualite','Communaute', 'Contact', 'Faq', 'Qui sommes-nous'];
+const pages = ['Actualite', 'Communaute', 'Contact', 'Faq', 'Qui sommes-nous'];
 
 export default function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -49,7 +49,7 @@ export default function ResponsiveAppBar() {
       borderColor: 'divider',
       boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
     }}>
-      <Container maxWidth="lg" sx={{ 
+      <Container maxWidth="lg" sx={{
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
