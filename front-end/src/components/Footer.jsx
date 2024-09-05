@@ -7,7 +7,7 @@ function Footer() {
     <Box component="footer" sx={{ bgcolor: 'background.paper', py: 6 }}>
       <Container maxWidth="lg">
         <Typography variant="h6" align="center" gutterBottom>
-          Trophelix
+          ReConnexionPro
         </Typography>
         <Typography variant="subtitle1" align="center" color="text.secondary" component="p">
           © {new Date().getFullYear()} Tous droits réservés.

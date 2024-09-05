@@ -96,10 +96,10 @@ const About = () => {
             </Typography>
             <Box sx={{ overflow: 'hidden', maxHeight: '200px', bgcolor:'grey.100', py: 4, mb: 4 }}>
               <Typography variant="body1" paragraph  sx={{fontSize:{xs: '0.4rem', sm: '0.9rem'}}} >
-              Trophelix est une plateforme innovante qui répond à un besoin crucial dans le monde du sport : préparer et aider les sportifs semi-professionnels et professionnels à réussir leur transition de carrière. 
+              ReconnexionPro est un site web dédié à fournir des ressources, des conseils et des témoignages pour guider les sportifs dans cette transition. Le site servira de plateforme où les anciens athlètes pourront trouver des informations sur les différentes opportunités de carrière, des formations adaptées, ainsi que des conseils pour réussir leur reconversion.Trophelix est une plateforme innovante qui répond à un besoin crucial dans le monde du sport : préparer et aider les sportifs semi-professionnels et professionnels à réussir leur transition de carrière. 
               </Typography>
               <Typography variant="body1" paragraph sx={{fontSize:{xs: '0.4rem', sm: '0.9rem'}}}>
-              Grâce à notre solution basée sur l'IA, nous offrons des ressources, des experts et des outils pour une transition réussie.
+              Le site servira de plateforme où les anciens athlètes pourront trouver des informations sur les différentes opportunités de carrière, des formations adaptées, ainsi que des conseils pour réussir leur reconversion. Grâce à notre solution basée sur l'IA, nous offrons des ressources, des experts et des outils pour une transition réussie.
               </Typography>
               <Typography sx={{fontSize:{xs: '0.4rem', sm: '0.9rem'}}}>
               Nous ciblons à la fois les sportifs eux-mêmes, ainsi que les fédérations et clubs sportifs qui peuvent utiliser la plateforme pour accompagner leurs athlètes dans leur reconversion. 

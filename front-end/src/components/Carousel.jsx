@@ -37,26 +37,27 @@ export default function Carousel() {
   };
 
   return (
-    <div className='carousel-container w-full'>
-      <Slider {...settings} >
-        {carouselData.map((slide, index) => (
-          <div key={index} className="relative"> {/* Augmentation de la hauteur */}
-            <img 
-              className="w-full h-full object-cover" 
-              src={slide.image} 
-              alt={slide.alt} 
-            />
-            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-              <h2 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold p-4 md:p-6 rounded text-center max-w-2xl md:max-w-3xl lg:max-w-4xl mx-4">
-                {slide.text}
-                {slide.author && (
-                  <><br /><span className="text-xl md:text-2xl mt-2">{slide.author}</span></>
-                )}
-              </h2>
-            </div>
-          </div>
-        ))}
-      </Slider>
-    </div>
+    <div className='carousel-container max-w-screen'>
+  <Slider {...settings} >
+    {carouselData.map((slide, index) => (
+      <div key={index} className="relative w-screen h-[100vh]"> {/* Images prennent toute la largeur et 100% de la hauteur de la fenêtre */}
+        <img 
+          className="w-screen h-full object-cover" 
+          src={slide.image} 
+          alt={slide.alt} 
+        />
+        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <h2 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold p-4 md:p-6 rounded text-center max-w-2xl md:max-w-3xl lg:max-w-4xl mx-4">
+            {slide.text}
+            {slide.author && (
+              <><br/><span className="text-xl md:text-2xl mt-2">{slide.author}</span></>
+            )}
+          </h2>
+        </div>
+      </div>
+    ))}
+  </Slider>
+</div>
+
   );
 }

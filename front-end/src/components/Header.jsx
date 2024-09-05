@@ -10,7 +10,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import Logo from '../assets/img/trophelix_logo-removebg-preview.png';
+import Logo from '../assets/img/Capture_d_écran_4-9-2024_231041_www.renderforest.com-removebg-preview.png';
 
 const pages = ['Actualite', 'Communaute', 'Contact', 'Faq', 'Qui sommes-nous'];
 

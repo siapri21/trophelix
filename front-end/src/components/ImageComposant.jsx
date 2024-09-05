@@ -19,10 +19,10 @@ export default  function ImageTextComponent() {
           <Box sx={{ display: 'flex', flexDirection: 'column', p: 2 }}>
             <CardContent>
               <Typography component="h2" variant="h5" gutterBottom>
-              " <strong style={{color:'orange'}}>Trophelix</strong> Optimise la reconversion <em style={{color: '#8A2BE2'}}>des sports pros</em>
+              " <strong style={{color:'orange'}}>ReConnexionPro</strong> Optimise la reconversion <em style={{color: '#8A2BE2'}}>des sportives</em>
              " </Typography>
               <Typography variant="body1" color="text.secondary">
-              Trophelix regroupe les acteurs de la reconversion pros dans une plateforme pour optimiser la transition des athlètes.
+              ReconnexionPro est un site web dédié à fournir des ressources, des conseils et des témoignages pour guider les sportifs dans cette transition. Le site servira de plateforme où les anciens athlètes pourront trouver des informations sur les différentes opportunités de carrière, des formations adaptées, ainsi que des conseils pour réussir leur reconversion.
               </Typography>
             </CardContent>
           </Box>
