@@ -37,7 +37,7 @@ export default function Carousel() {
   };
 
   return (
-    <div className='carousel-container max-w-screen'>
+    <div className='carousel-container max-w-screenclearclear'>
   <Slider {...settings} >
     {carouselData.map((slide, index) => (
       <div key={index} className="relative w-screen h-[100vh]"> {/* Images prennent toute la largeur et 100% de la hauteur de la fenêtre */}
